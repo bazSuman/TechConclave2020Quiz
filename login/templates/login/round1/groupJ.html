@@ -1,0 +1,124 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+<title>(R1)Group J | QuizMaster</title>
+{% endblock %}
+
+{% block content %}
+
+   <div class="container">
+      <div class="left">
+         <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+         </div>
+         <h2>Welcome to Kings of Night Quiz Competition</h2>
+         <h4>J</h4>
+         <div class="question">
+            <div class="timer">
+               <h2>0</h2>
+               <br />
+               <h6>SEC</h6>
+            </div>
+            <h5>को बन्छ हजारपति
+               {% for x in context %}
+               {{x.question}}
+               {% endfor %}
+            </h5>
+            <!-- <div id="btn"><button onclick="setInterval(updateCounter,1000)" >START</button></div> -->
+         </div>
+      </div>
+
+      <div class="right">
+         <div class="row">
+            <button type="button" class="activesection" data-filter="science">
+               Science
+            </button>
+            <button type="button" data-filter="GK">GK</button>
+            <button type="button" data-filter="sports">Sports</button>
+            <button type="button" data-filter="recent">Recent Events</button>
+            <button type="button" data-filter="geography">Geography</button>
+
+         </div>
+         <div class="optionlist">
+            <table class="option show" data-category="science">
+               <tr>
+                  <td><button id="1">1</button></td>
+                  <td><button id="2">2</button></td>
+                  <td><button id="3">3</button></td>
+                  <td><button id="4">4</button></td>
+               </tr>
+               <tr>
+                  <td><button id="5">5</button></td>
+                  <td><button id="6">6</button></td>
+                  <td><button id="7">7</button></td>
+                  <td><button id="8">8</button></td>
+               </tr>
+            </table>
+
+            <table class="option hide" data-category="GK">
+               <tr>
+                  <td><button id="9">1</button></td>
+                  <td><button id="10">2</button></td>
+                  <td><button id="11">3</button></td>
+                  <td><button id="12">4</button></td>
+               </tr>
+               <tr>
+                  <td><button id="13">5</button></td>
+                  <td><button id="14">6</button></td>
+                  <td><button id="15">7</button></td>
+                  <td><button id="16">8</button></td>
+               </tr>
+            </table>
+
+            <table class="option hide" data-category="sports">
+               <tr>
+                  <td><button id="17">1</button></td>
+                  <td><button id="18">2</button></td>
+                  <td><button id="19">3</button></td>
+                  <td><button id="20">4</button></td>
+               </tr>
+               <tr>
+                  <td><button id="21">5</button></td>
+                  <td><button id="22">6</button></td>
+                  <td><button id="23">7</button></td>
+                  <td><button id="24">8</button></td>
+               </tr>
+            </table>
+
+            <table class="option hide" data-category="recent">
+               <tr>
+                  <td><button id="25">1</button></td>
+                  <td><button id="26">2</button></td>
+                  <td><button id="27">3</button></td>
+                  <td><button id="28">4</button></td>
+               </tr>
+               <tr>
+                  <td><button id="29">5</button></td>
+                  <td><button id="30">6</button></td>
+                  <td><button id="31">7</button></td>
+                  <td><button id="32">8</button></td>
+               </tr>
+            </table>
+
+            <table class="option hide" data-category="geography">
+               <tr>
+                  <td><button id="25">1</button></td>
+                  <td><button id="26">2</button></td>
+                  <td><button id="27">3</button></td>
+                  <td><button id="28">4</button></td>
+               </tr>
+               <tr>
+                  <td><button id="29">5</button></td>
+                  <td><button id="30">6</button></td>
+                  <td><button id="31">7</button></td>
+                  <td><button id="32">8</button></td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>
+   
+{% endblock content %}
+  

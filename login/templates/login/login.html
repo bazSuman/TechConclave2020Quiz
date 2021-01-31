@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.favicon.cc/logo3d/823471.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'login/mystyle.css' %}">
+    <title>Login | QuizMaster</title>
+</head>
+
+<body>
+    <div id="full-page">
+        {% if messages %}
+        <ul class="messages bg-warning rounded-pill text-center">
+            {% for message in messages %}
+            <li {% if message.tags %} class=" {{ message.tags }} list-unstyled" {% endif %}> {{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <section id="form-section">
+        <form action="" method="POST">
+            <div class="user-circle">
+                <!-- <img src="{% static 'login/sum.png'  %}" alt=""> -->
+            </div>
+            {% csrf_token %}
+            <div class="form-fields">
+                <div class="label-style">
+                    Username
+                </div>
+                <div class="form-style">
+                    <input type="text" name="username">
+                </div>
+            </div>
+            <div class="form-fields">
+                <div class="label-style">
+                    Password
+                </div>
+                <div class="form-style">
+                    <input type="password" name="password">
+                </div>
+            </div>
+            <center>
+                {{form.errors}}
+                {% if messages %}
+                <ul class="messages bg-warning rounded-pill text-center">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class=" {{ message.tags }} list-unstyled" {% endif %}> {{ message }} </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </center>
+            <center>
+                <input id="submit-btn" type="submit" name="CreateUser" value="Login">
+            </center>
+            <center>
+                <p style="padding-top: 4%;">Do not have an account ? <a href="{%url 'register' %}"><b>Register</b></a>
+                </p>
+            </center>
+        </form>
+    </section>
+</body>
+
+</html>

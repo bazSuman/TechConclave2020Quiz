@@ -1,0 +1,96 @@
+{% extends 'login/base.html' %}
+
+
+{% block title %}
+<title>Buzzer Round GRAND FINALE | QuizMaster</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="left">
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <h2>Tech Conclave 2020 - Quiz Championship</h2>
+
+        <p>
+            <a style="color: gold; font-size: 420%; text-decoration: none;" href="{% url 'grandfinale' %}">GRAND
+                FINALE</a>
+        </p>
+        <h4> &lt; Buzzer Round &gt; </h4>
+        <div id="questionbox" class="question" style="background: #ddd;">
+            <div class="timer">
+                <h2>20</h2>
+                <br />
+                <h6>SEC</h6>
+            </div>
+            <div id="waiting-screen" style="display: flex;">
+                <b>[CFC] - Tech Conclave Quiz Championship</b>
+            </div>
+            <div id="q_text" style="color: #000000;">
+                {% for x in context %}
+                <!-- We will have 40 questions in each group at once.. rest js will handle which id question to be displayed -->
+                <h5 id="question{{forloop.counter}}" style="display: none;">
+                    {% if x.image_question %}
+                    <img src="{{x.image_question.url}}" alt="Question_Image" width="300" height="300"
+                        style="position: absolute; top: -10%; left: 50%; transform: translate(-50%,-50%);">
+                    {% endif %}
+                    <p style="margin-top: 8%;">
+                        {{x.question}}
+                    </p>
+                </h5>
+
+                <!-- for the answers okay dude -->
+                <h6 id="answer{{forloop.counter}}" class="answer-class" style="display: none;">
+                    {{x.answer}}
+                </h6>
+                <button id="answerbutton{{forloop.counter}}" class="answerbtn-class" style="display: none;">View
+                    answer</button>
+
+
+                {% endfor %}
+            </div>
+            <!-- <div id="btn"><button onclick="setInterval(updateCounter,1000)" >START</button></div> -->
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="row" style="margin-top: -12%;">
+            <button type="button" data-filter="recent">
+
+            </button>
+            <button type="button" data-filter="sports"></button>
+            <button type="button" class="activesection" data-filter="tech">Buzzer Questions</button>
+            <button type="button" data-filter="geography"></button>
+            <button type="button" data-filter="GK"></button>
+
+        </div>
+        <div class="optionlist">
+            <table class="option show" data-category="tech">
+                <tr>
+                    <td><button id="1">1</button></td>
+                    <td><button id="2">2</button></td>
+                    <td><button id="3">3</button></td>
+                    <td><button id="4">4</button></td>
+                </tr>
+                <tr>
+                    <td><button id="5">5</button></td>
+                    <td><button id="6">6</button></td>
+                    <td><button id="7">7</button></td>
+                    <td><button id="8">8</button></td>
+                </tr>
+                <tr>
+                    <td><button id="" style="display: none;"></button></td>
+                    <td><button id="9">9</button></td>
+                    <td><button id="10">10</button></td>
+                    <td><button id="" style="display: none;"></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

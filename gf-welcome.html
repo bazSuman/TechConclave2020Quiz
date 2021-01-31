@@ -1,0 +1,199 @@
+{% extends 'login/base.html' %} {% block title %}
+<title>Grand Finale | QuizMaster</title>
+{% endblock %} {% block content %}
+
+<style>
+  .btn {
+    border: 1px solid black;
+    background: #012436;
+    padding: 12px;
+    border-radius: 4px;
+    transition: 0.45s all;
+    margin: 0 10px;
+  }
+
+  .btn:hover {
+    background: #3c4950;
+    transition: 0.45s all;
+  }
+
+  .mt {
+    margin-top: 5%;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(255, 230, 0);
+    font-weight: 900;
+    padding: 0 50%;
+  }
+
+   /*by me*/
+  .left {
+    min-width: 100%;
+    background: #012436;
+  }
+  p.gft{
+   color: gold; 
+   font-size: 420%;
+  }
+  #questionbox{
+   background: #ddd;
+   margin-top: 8% !important;
+  }
+ 
+  @media screen and (max-width: 528px) {
+    .container {
+      min-width: 100%;
+      min-height: 100vh;
+    }
+
+    .btn {
+      margin-top: 2%;
+    }
+    #questionbox {
+   height: 50%;
+   margin-top: 20% !important;
+   }
+   #waiting-screen{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       width: 100%;
+       height: 500px;
+    }
+   p.gft{
+      font-size: 200%;
+      margin-bottom: 10%;
+   }
+   h2{
+      font-size: 20px;
+      margin-top: 20%;
+   }
+  }*/
+</style>
+
+<div class="container">
+  <div class="left">
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <h2>Tech Conclave 2020 - Quiz Championship</h2>
+
+    <p class="gft" >
+      GRAND FINALE
+    </p>
+
+    <div
+      id="questionbox"
+      class="question" >
+   
+      <div id="waiting-screen">
+        <p>
+          <b>[CFC] - Tech Conclave Quiz Championship</b>
+        </p>
+        <p class="mt" style="display: flex; flex-wrap: wrap;"> <!--Me-->
+          <a class="btn" href="{% url 'finalegr' %}">General Round</a>
+          <a class="btn second" href="{% url 'finalebr' %}">Buzzer Round</a>
+          <a class="btn third" href="{% url 'finalerr' %}">Risk Round</a>
+        </p>
+      </div>
+      <div id="q_text" style="color: #000000;"></div>
+      <!-- <div id="btn"><button onclick="setInterval(updateCounter,1000)" >START</button></div> -->
+    </div>
+  </div>
+
+  <!-- <div class="right">
+      <div class="row">
+         <button type="button" class="activesection" data-filter="recent">
+            Recent Events
+         </button>
+         <button type="button" data-filter="sports">Sports</button>
+         <button type="button" data-filter="tech">Tech</button>
+         <button type="button" data-filter="geography">Geography</button>
+         <button type="button" data-filter="GK">GK</button>
+
+      </div>
+      <div class="optionlist">
+         <table class="option show" data-category="recent">
+            <tr>
+               <td><button id="1">1</button></td>
+               <td><button id="2">2</button></td>
+               <td><button id="3">3</button></td>
+               <td><button id="4">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="5">5</button></td>
+               <td><button id="6">6</button></td>
+               <td><button id="7">7</button></td>
+               <td><button id="8">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="sports">
+            <tr>
+               <td><button id="9">1</button></td>
+               <td><button id="10">2</button></td>
+               <td><button id="11">3</button></td>
+               <td><button id="12">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="13">5</button></td>
+               <td><button id="14">6</button></td>
+               <td><button id="15">7</button></td>
+               <td><button id="16">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="tech">
+            <tr>
+               <td><button id="17">1</button></td>
+               <td><button id="18">2</button></td>
+               <td><button id="19">3</button></td>
+               <td><button id="20">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="21">5</button></td>
+               <td><button id="22">6</button></td>
+               <td><button id="23">7</button></td>
+               <td><button id="24">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="geography">
+            <tr>
+               <td><button id="25">1</button></td>
+               <td><button id="26">2</button></td>
+               <td><button id="27">3</button></td>
+               <td><button id="28">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="29">5</button></td>
+               <td><button id="30">6</button></td>
+               <td><button id="31">7</button></td>
+               <td><button id="32">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="GK">
+            <tr>
+               <td><button id="33">1</button></td>
+               <td><button id="34">2</button></td>
+               <td><button id="35">3</button></td>
+               <td><button id="36">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="37">5</button></td>
+               <td><button id="38">6</button></td>
+               <td><button id="39">7</button></td>
+               <td><button id="40">8</button></td>
+            </tr>
+         </table>
+      </div>
+   </div> -->
+</div>
+
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/mystyle.css' %}">
+    <link rel="shortcut icon" href="https://www.favicon.cc/logo3d/823471.png" type="image/x-icon">
+    <title>Register | QuizMaster</title>
+</head>
+
+<body>
+    <div id="full-page">
+    </div>
+    <section id="form-section">
+        <form action="" method="POST">
+            <div class="user-circle">
+                <!-- <img src="{% static 'login/sum.png'  %}" alt=""> -->
+            </div>
+            {% csrf_token %}
+            <div class="form-fields">
+                <div class="label-style">
+                    {{form.username.label}}
+                </div>
+                <div class="form-style">
+                    {{form.username}}
+                </div>
+            </div>
+            <div class="form-fields">
+                <div class="label-style">
+                    {{form.email.label}}
+                </div>
+                <div class="form-style">
+                    {{form.email}}
+                </div>
+            </div>
+            <div class="form-fields">
+                <div class="label-style">
+                    {{form.password1.label}}
+                </div>
+                <div class="form-style">
+                    {{form.password1}}
+                </div>
+            </div>
+            <div class="form-fields">
+                <div class="label-style">
+                    {{form.password2.label}}
+                </div>
+                <div class="form-style">
+                    {{form.password2}}
+                </div>
+            </div>
+
+            <center style="color: red !important; list-style: none!important;">
+                {{form.errors}}     
+            </center>
+            <center>
+                <input id="submit-btn" type="submit" name="CreateUser" value="Register">
+            </center>
+            <center>
+                <p style="padding-top: 4%;">Already have an account ? <a href="{%url 'login' %}"><b>Login</b></a></p>
+            </center>
+        </form>
+    </section>
+
+</body>
+
+</html>

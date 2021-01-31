@@ -1,0 +1,136 @@
+{% extends 'login/base.html' %}
+
+
+{% block title %}
+<title>(R1)Group C | QuizMaster</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+   <div class="left">
+      <div class="burger">
+         <div class="line1"></div>
+         <div class="line2"></div>
+         <div class="line3"></div>
+      </div>
+      <h2>Tech Conclave 2020 - Quiz Championship</h2>
+      <h4>Group C</h4>
+      <div id="questionbox" class="question" style="background: #ddd;">
+         <div class="timer">
+            <h2>20</h2>
+            <br />
+            <h6>SEC</h6>
+         </div>
+         <div id="waiting-screen" style="display: flex;">
+            <b>[CFC] - Tech Conclave Quiz Championship</b>
+         </div>
+         <div id="q_text" style="color: #000000;">
+            {% for x in context %}
+            <!-- We will have 40 questions in each group at once.. rest js will handle which id question to be displayed -->
+            <h5 id="question{{forloop.counter}}" style="display: none;">
+               {{x.question}}
+            </h5>
+            <!-- for the answers okay dude -->
+            <h6 id="answer{{forloop.counter}}" class="answer-class" style="display: none;">
+               {{x.answer}}
+            </h6>
+            <button id="answerbutton{{forloop.counter}}" class="answerbtn-class" style="display: none;">View
+               answer</button>
+            {% endfor %}
+         </div>
+         <!-- <div id="btn"><button onclick="setInterval(updateCounter,1000)" >START</button></div> -->
+      </div>
+   </div>
+
+   <div class="right">
+      <div class="row">
+         <button type="button" class="activesection" data-filter="recent">
+            Recent Events
+         </button>
+         <button type="button" data-filter="sports">Sports</button>
+         <button type="button" data-filter="tech">Tech</button>
+         <button type="button" data-filter="geography">Geography</button>
+         <button type="button" data-filter="GK">GK</button>
+
+      </div>
+      <div class="optionlist">
+         <table class="option show" data-category="recent">
+            <tr>
+               <td><button id="1">1</button></td>
+               <td><button id="2">2</button></td>
+               <td><button id="3">3</button></td>
+               <td><button id="4">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="5">5</button></td>
+               <td><button id="6">6</button></td>
+               <td><button id="7">7</button></td>
+               <td><button id="8">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="sports">
+            <tr>
+               <td><button id="9">1</button></td>
+               <td><button id="10">2</button></td>
+               <td><button id="11">3</button></td>
+               <td><button id="12">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="13">5</button></td>
+               <td><button id="14">6</button></td>
+               <td><button id="15">7</button></td>
+               <td><button id="16">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="tech">
+            <tr>
+               <td><button id="17">1</button></td>
+               <td><button id="18">2</button></td>
+               <td><button id="19">3</button></td>
+               <td><button id="20">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="21">5</button></td>
+               <td><button id="22">6</button></td>
+               <td><button id="23">7</button></td>
+               <td><button id="24">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="geography">
+            <tr>
+               <td><button id="25">1</button></td>
+               <td><button id="26">2</button></td>
+               <td><button id="27">3</button></td>
+               <td><button id="28">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="29">5</button></td>
+               <td><button id="30">6</button></td>
+               <td><button id="31">7</button></td>
+               <td><button id="32">8</button></td>
+            </tr>
+         </table>
+
+         <table class="option hide" data-category="GK">
+            <tr>
+               <td><button id="33">1</button></td>
+               <td><button id="34">2</button></td>
+               <td><button id="35">3</button></td>
+               <td><button id="36">4</button></td>
+            </tr>
+            <tr>
+               <td><button id="37">5</button></td>
+               <td><button id="38">6</button></td>
+               <td><button id="39">7</button></td>
+               <td><button id="40">8</button></td>
+            </tr>
+         </table>
+      </div>
+   </div>
+</div>
+
+{% endblock content %}
